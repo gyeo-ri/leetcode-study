@@ -1,3 +1,14 @@
+"""
+[결과 요약]
+# 시도한 로직 수: 1
+    1. DFS를 활용하는 방법
+        - 현재 노드의 좌우를 바꾼 다음 바로 아래 노드로 이동
+            - 하위 노드가 없는 노드를 만날 때까지 반복되고 종료됨
+        - 시간복잡도는 O(n)
+            - 공간복잡도는 O(n)이고, 트리가 균형이면 O(logn)까지 가능(B-Tree 같은 경우)
+"""
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
