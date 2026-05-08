@@ -11,6 +11,7 @@
             - DFS와 성능 차이가 크게 없음
     3. BFS에서 약간의 메모리 개선하기
         - None을 queue에 넣지 않는 방법
+        - 트리 크기가 아주 크지 않다면 큰 효과는 없음
 """
 
 from collections import deque
