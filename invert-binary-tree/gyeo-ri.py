@@ -9,6 +9,8 @@
     2. BFS를 활용하는 방법
         - 시간복잡도/공간복잡도 모두 O(n)
             - DFS와 성능 차이가 크게 없음
+    3. BFS에서 약간의 메모리 개선하기
+        - None을 queue에 넣지 않는 방법
 """
 
 from collections import deque
@@ -23,6 +25,9 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: TreeNode | None) -> TreeNode | None:
+        if not root:
+            return root
+
         next_nodes: deque[TreeNode] = deque([root])
 
         while next_nodes:
@@ -32,8 +37,10 @@ class Solution:
 
             current.left, current.right = current.right, current.left
 
-            next_nodes.append(current.left)
-            next_nodes.append(current.right)
+            if current.left:
+                next_nodes.append(current.left)
+            if current.right:
+                next_nodes.append(current.right)
 
         return root
 
