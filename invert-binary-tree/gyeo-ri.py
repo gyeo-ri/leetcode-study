@@ -7,7 +7,20 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: TreeNode | None) -> TreeNode | None:
-        pass
+        def dfs(current: TreeNode | None):
+            if not current:
+                return
+
+            left = current.left
+            right = current.right
+            current.right = left
+            current.left = right
+
+            dfs(current.right)
+            dfs(current.left)
+
+        dfs(root)
+        return root
 
 
 if __name__ == "__main__":
