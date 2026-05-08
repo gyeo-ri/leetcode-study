@@ -11,10 +11,7 @@ class Solution:
             if not current:
                 return
 
-            left = current.left
-            right = current.right
-            current.right = left
-            current.left = right
+            current.left, current.right = current.right, current.left
 
             dfs(current.right)
             dfs(current.left)
